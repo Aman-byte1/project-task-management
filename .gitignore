@@ -1,0 +1,1561 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+backend/dist/
+frontend/build/
+frontend/dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+*.lcov
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Uploads (if you want to exclude uploaded files)
+uploads/
+!uploads/.gitkeep
+
+# Screenshots (if you want to exclude screenshots)
+!screenshots/README.md
+
+# Testing
+test-results/
+playwright-report/
+playwright/.cache/
+
+# PM2
+ecosystem.config.js
+.pm2/
+
+# Local development
+.vscode/settings.json
+.idea/workspace.xml
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Application specific
+config/local.json
+config/production.json
+config/staging.json
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Redis dump
+dump.rdb
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Local development overrides
+.env.local.override
+
+# Vercel
+.vercel
+
+# Turbo
+.turbo
+
+# Storybook
+storybook-static/
+
+# Sentry
+.sentryclirc
+
+# Netlify
+.netlify/
+
+# AWS
+.aws/
+
+# Google Cloud
+.gcloud/
+
+# Azure
+.azure/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Local development
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Docker volumes
+db_data/
+postgres_data/
+mysql_data/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Compiled binary addons
+build/Release/
+
+# Gradle
+.gradle/
+
+# Maven
+target/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ruby
+*.gem
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+
+# Rust
+target/
+Cargo.lock
+
+# C/C++
+*.o
+*.obj
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# Scala
+*.class
+*.log
+*.ctxt
+.metals/
+.bloop/
+.bsp/
+
+# Kotlin
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Swift
+*.swiftpm/
+.build/
+xcuserdata/
+
+# Objective-C
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Android
+*.apk
+*.ap_
+*.dex
+bin/
+gen/
+.gradle/
+local.properties
+proguard/
+*.log
+.navigation/
+captures/
+*.jks
+*.keystore
+
+# iOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.swp
+*.lock
+*.tmp
+*.tmp/
+*.log
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+# Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+flutter_*.png
+linked_*.desc
+unlinked_*.desc
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+ios/Flutter/
+android/Flutter/
+
+# React Native
+ios/build/
+android/app/build/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.tmp.driveupload
+
+# Expo
+.expo/
+.expo-shared/
+
+# Cordova/PhoneGap
+platforms/
+plugins/
+www/
+*.ipa
+*.apk
+*.ap_
+*.aab
+
+# Ionic
+platforms/
+plugins/
+www/
+*.ipa
+*.apk
+*.ap_
+*.aab
+
+# Titanium
+tiapp.xml
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+*.gz
+*.xz
+*.lzma
+*.cab
+*.msi
+*.dmg
+*.deb
+*.rpm
+*.snap
+*.flatpak
+*.AppImage
+
+# Qt
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+Makefile*
+*build-*
+
+# Visual Studio
+.vs/
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Atom
+.atom/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Notepad++
+*.txt
+*.tmp
+
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+# Brackets
+.brackets
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+.externalToolBuilders/
+*.launch
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+build/
+debug/
+*.slo
+*.lo
+*.o
+*.obj
+*.gch
+*.pch
+*.so
+*.dylib
+*.dll
+*.mod
+*.smod
+*.lai
+*.la
+*.a
+*.lib
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
+!libs/**/*.jar
+
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Android Studio
+.idea/
+.gradle/
+local.properties
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Local development
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Docker
+
+.docker/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Application specific
+config/local.json
+config/production.json
+config/staging.json
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Redis dump
+dump.rdb
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Local development overrides
+.env.local.override
+
+# Vercel
+.vercel
+
+# Turbo
+.turbo
+
+# Storybook
+storybook-static/
+
+# Sentry
+.sentryclirc
+
+# Netlify
+.netlify/
+
+# AWS
+.aws/
+
+# Google Cloud
+.gcloud/
+
+# Azure
+.azure/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Local development
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Docker volumes
+db_data/
+postgres_data/
+mysql_data/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Compiled binary addons
+build/Release/
+
+# Gradle
+.gradle/
+
+# Maven
+target/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ruby
+*.gem
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+
+# Rust
+target/
+Cargo.lock
+
+# C/C++
+*.o
+*.obj
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# Scala
+*.class
+*.log
+*.ctxt
+.metals/
+.bloop/
+.bsp/
+
+# Kotlin
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Swift
+*.swiftpm/
+.build/
+xcuserdata/
+
+# Objective-C
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Android
+*.apk
+*.ap_
+*.dex
+bin/
+gen/
+.gradle/
+local.properties
+proguard/
+*.log
+.navigation/
+captures/
+*.jks
+*.keystore
+
+# iOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.swp
+*.lock
+*.tmp
+*.tmp/
+*.log
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+# Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+flutter_*.png
+linked_*.desc
+unlinked_*.desc
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+ios/Flutter/
+android/Flutter/
+
+# React Native
+ios/build/
+android/app/build/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.tmp.driveupload
+
+# Expo
+.expo/
+.expo-shared/
+
+# Cordova/PhoneGap
+platforms/
+plugins/
+www/
+*.ipa
+*.apk
+*.ap_
+*.aab
+
+# Ionic
+platforms/
+plugins/
+www/
+*.ipa
+*.apk
+*.ap_
+*.aab
+
+# Titanium
+tiapp.xml
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+*.gz
+*.xz
+*.lzma
+*.cab
+*.msi
+*.dmg
+*.deb
+*.rpm
+*.snap
+*.flatpak
+*.AppImage
+
+# Qt
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+Makefile*
+*build-*
+
+# Visual Studio
+.vs/
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Atom
+.atom/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Notepad++
+*.txt
+*.tmp
+
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+# Brackets
+.brackets
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+.externalToolBuilders/
+*.launch
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+build/
+debug/
+*.slo
+*.lo
+*.o
+*.obj
+*.gch
+*.pch
+*.so
+*.dylib
+*.dll
+*.mod
+*.smod
+*.lai
+*.la
+*.a
+*.lib
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
+!libs/**/*.jar
+
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Android Studio
+.idea/
+.gradle/
+local.properties
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Local development
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Docker
+.dockerignore
+Dockerfile*
+docker-compose*.yml
+.docker/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Application specific
+config/local.json
+config/production.json
+config/staging.json
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Redis dump
+dump.rdb
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Local development overrides
+.env.local.override
+
+# Vercel
+.vercel
+
+# Turbo
+.turbo
+
+# Storybook
+storybook-static/
+
+# Sentry
+.sentryclirc
+
+# Netlify
+.netlify/
+
+# AWS
+.aws/
+
+# Google Cloud
+.gcloud/
+
+# Azure
+.azure/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Local development
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Docker volumes
+db_data/
+postgres_data/
+mysql_data/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Compiled binary addons
+build/Release/
+
+# Gradle
+.gradle/
+
+# Maven
+target/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ruby
+*.gem
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+
+# Rust
+target/
+Cargo.lock
+
+# C/C++
+*.o
+*.obj
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# Scala
+*.class
+*.log
+*.ctxt
+.metals/
+.bloop/
+.bsp/
+
+# Kotlin
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Swift
+*.swiftpm/
+.build/
+xcuserdata/
+
+# Objective-C
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Android
+*.apk
+*.ap_
+*.dex
+bin/
+gen/
+.gradle/
+local.properties
+proguard/
+*.log
+.navigation/
+captures/
+*.jks
+*.keystore
+
+# iOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.swp
+*.lock
+*.tmp
+*.tmp/
+*.log
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+# Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+flutter_*.png
+linked_*.desc
+unlinked_*.desc
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+ios/Flutter/
+android/Flutter/
+
+# React Native
+ios/build/
+android/app/build/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.tmp.driveupload
+
+# Expo
+.expo/
+.expo-shared/
+
+# Cordova/PhoneGap
+platforms/
+plugins/
+www/
+*.ipa
+*.apk
+*.ap_
+*.aab
+
+# Ionic
+platforms/
+plugins/
+www/
+*.ipa
+*.apk
+*.ap_
+*.aab
+
+# Titanium
+tiapp.xml
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+*.gz
+*.xz
+*.lzma
+*.cab
+*.msi
+*.dmg
+*.deb
+*.rpm
+*.snap
+*.flatpak
+*.AppImage
+
+# Qt
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+Makefile*
+*build-*
+
+# Visual Studio
+.vs/
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Atom
+.atom/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
