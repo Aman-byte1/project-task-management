@@ -1,0 +1,29 @@
+# Backend Dockerfile
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY backend/package*.json ./
+
+# Install all dependencies
+RUN npm install
+
+# Copy source code
+COPY backend/ .
+
+# Build TypeScript
+RUN npm run build
+
+# Prune dev dependencies for a smaller final image
+RUN npm prune --production
+
+# Create uploads directory
+RUN mkdir -p uploads
+
+# Expose port
+EXPOSE 5000
+
+# Start the application using node directly
+CMD ["node", "dist/server.js"]

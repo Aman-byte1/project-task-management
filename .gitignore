@@ -668,7 +668,6 @@ firestore-debug.log
 
 # Docker
 
-.docker/
 
 # Backup files
 *.backup
@@ -1165,11 +1164,7 @@ firestore-debug.log
 .env.test
 .env.production
 
-# Docker
-.dockerignore
-Dockerfile*
-docker-compose*.yml
-.docker/
+
 
 # Backup files
 *.backup
