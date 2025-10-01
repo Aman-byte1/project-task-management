@@ -8,7 +8,7 @@ import {
   updateTimeEntry,
   deleteTimeEntry,
   getRunningTimeEntry
-} from '../controllers/timeEntry.controller';
+} from '../modules/tasks/timeEntry.controller';
 
 const router = Router();
 

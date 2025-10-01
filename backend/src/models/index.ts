@@ -1,11 +1,11 @@
-import { User } from './User';
-import { Project } from './Project';
-import { Task } from './Task';
-import { Comment } from './Comment';
-import { Attachment } from './Attachment';
-import { TimeEntry } from './TimeEntry';
-import { TaskDependency } from './TaskDependency';
-import { Notification } from './Notification';
+import { User } from '../modules/auth/User';
+import { Project } from '../modules/projects/Project';
+import { Task } from '../modules/tasks/Task';
+import { Comment } from '../modules/tasks/Comment';
+import { Attachment } from '../modules/tasks/Attachment';
+import { TimeEntry } from '../modules/tasks/TimeEntry';
+import { TaskDependency } from '../modules/tasks/TaskDependency';
+import { Notification } from '../modules/auth/Notification';
 
 // Define associations
 User.hasMany(Project, { foreignKey: 'ownerId', as: 'ownedProjects' });

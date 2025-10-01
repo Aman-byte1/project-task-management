@@ -1,9 +1,9 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth.middleware';
-import { Attachment } from '../models/Attachment';
-import { Task } from '../models/Task';
-import { Project } from '../models/Project';
-import { User } from '../models/User';
+import { AuthRequest } from '../../middleware/auth.middleware';
+import { Attachment } from './Attachment';
+import { Task } from './Task';
+import { Project } from '../projects/Project';
+import { User } from '../auth/User';
 import path from 'path';
 import fs from 'fs';
 

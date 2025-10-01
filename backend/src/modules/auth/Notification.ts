@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from 'sequelize';
-import { sequelize } from '../config/database';
+import { sequelize } from '../../config/database';
 
 export type NotificationType = 'task_assigned' | 'project_assigned' | 'task_completed' | 'project_completed' | 'task_due' | 'comment_added';
 

@@ -7,7 +7,7 @@ import {
   updateTaskDependency,
   deleteTaskDependency,
   getAllDependenciesForProject
-} from '../controllers/taskDependency.controller';
+} from '../modules/tasks/taskDependency.controller';
 
 const router = Router();
 

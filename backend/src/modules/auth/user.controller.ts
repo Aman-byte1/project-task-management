@@ -1,6 +1,6 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth.middleware';
-import { User, UserRole } from '../models/User';
+import { AuthRequest } from '../../middleware/auth.middleware';
+import { User, UserRole } from './User';
 
 export const getAllUsers = async (req: AuthRequest, res: Response) => {
   try {

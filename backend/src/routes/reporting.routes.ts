@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { ReportingController } from '../controllers/reporting.controller';
+import { ReportingController } from '../modules/projects/reporting.controller';
 // import { authenticate } from '../middleware/auth.middleware';
 
 const router = Router();
@@ -45,5 +45,15 @@ router.get('/resources/utilization', ReportingController.getResourceUtilization)
 
 // Custom reports
 router.get('/custom', ReportingController.getCustomReport);
+
+// PDF Generation Routes
+// Generate project report PDF
+router.post('/projects/:projectId/pdf', ReportingController.generateProjectReportPDF);
+
+// Generate task report PDF
+router.post('/tasks/:taskId/pdf', ReportingController.generateTaskReportPDF);
+
+// Generate time tracking report PDF
+router.post('/users/:userId/time-tracking/pdf', ReportingController.generateTimeTrackingReportPDF);
 
 export default router;

@@ -1,9 +1,9 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth.middleware';
-import { TaskDependency, DependencyType } from '../models/TaskDependency';
-import { Task } from '../models/Task';
-import { Project } from '../models/Project';
-import { User } from '../models/User';
+import { AuthRequest } from '../../middleware/auth.middleware';
+import { TaskDependency, DependencyType } from './TaskDependency';
+import { Task } from './Task';
+import { Project } from '../projects/Project';
+import { User } from '../auth/User';
 
 export const getTaskDependencies = async (req: AuthRequest, res: Response) => {
   try {

@@ -1,8 +1,8 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth.middleware';
-import { TimeEntry } from '../models/TimeEntry';
-import { Task } from '../models/Task';
-import { User } from '../models/User';
+import { AuthRequest } from '../../middleware/auth.middleware';
+import { TimeEntry } from './TimeEntry';
+import { Task } from './Task';
+import { User } from '../auth/User';
 
 export const getTimeEntriesByTask = async (req: AuthRequest, res: Response) => {
   try {

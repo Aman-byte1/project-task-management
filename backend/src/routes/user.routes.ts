@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { getAllUsers, getUserById, updateUser, deleteUser } from '../controllers/user.controller';
+import { getAllUsers, getUserById, updateUser, deleteUser } from '../modules/auth/user.controller';
 import { authenticate, authorize } from '../middleware/auth.middleware';
-import { UserRole } from '../models/User';
+import { UserRole } from '../modules/auth/User';
 
 const router = Router();
 

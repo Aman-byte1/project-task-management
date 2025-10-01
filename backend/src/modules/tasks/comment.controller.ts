@@ -1,8 +1,8 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth.middleware';
-import { Comment } from '../models/Comment';
-import { Task } from '../models/Task';
-import { User } from '../models/User';
+import { AuthRequest } from '../../middleware/auth.middleware';
+import { Comment } from './Comment';
+import { Task } from './Task';
+import { User } from '../auth/User';
 
 export const getCommentsByTask = async (req: AuthRequest, res: Response) => {
   try {

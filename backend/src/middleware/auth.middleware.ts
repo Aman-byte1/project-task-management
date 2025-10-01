@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
-import { User, UserRole } from '../models/User';
+import { User, UserRole } from '../modules/auth/User';
+import { verifyAccessToken } from '../modules/auth/token.utils';
 
 export interface AuthRequest extends Request {
   user?: User;
@@ -9,13 +9,13 @@ export interface AuthRequest extends Request {
 
 export const authenticate = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {
-    const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
+    const accessToken = req.cookies.accessToken || req.headers.authorization?.split(' ')[1];
 
-    if (!token) {
-      return res.status(401).json({ message: 'Authentication required' });
+    if (!accessToken) {
+      return res.status(401).json({ message: 'Access token required' });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { userId: number };
+    const decoded = verifyAccessToken(accessToken);
     const user = await User.findByPk(decoded.userId);
 
     if (!user) {
@@ -25,7 +25,7 @@ export const authenticate = async (req: AuthRequest, res: Response, next: NextFu
     req.user = user;
     next();
   } catch (error) {
-    return res.status(401).json({ message: 'Invalid token' });
+    return res.status(401).json({ message: 'Invalid or expired access token' });
   }
 };
 

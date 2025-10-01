@@ -5,7 +5,7 @@ import {
   createComment,
   updateComment,
   deleteComment
-} from '../controllers/comment.controller';
+} from '../modules/tasks/comment.controller';
 
 const router = Router();
 

@@ -1,4 +1,4 @@
-import { User, UserRole } from './models/User';
+import { User, UserRole } from '../src/modules/auth/User';
 
 export async function seedAdmin() {
   try {

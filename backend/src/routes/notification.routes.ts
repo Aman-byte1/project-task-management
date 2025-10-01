@@ -5,7 +5,7 @@ import {
   markNotificationAsRead,
   markAllNotificationsAsRead,
   deleteNotification
-} from '../controllers/notification.controller';
+} from '../modules/auth/notification.controller';
 
 const router = Router();
 

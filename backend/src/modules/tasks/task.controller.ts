@@ -1,13 +1,15 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth.middleware';
-import { Task } from '../models/Task';
-import { Project } from '../models/Project';
-import { User, UserRole } from '../models/User';
-import { Comment } from '../models/Comment';
-import { Attachment } from '../models/Attachment';
-import { TaskDependency } from '../models/TaskDependency';
-import { TimeEntry } from '../models/TimeEntry';
-import { notifyTaskAssigned } from './notification.controller';
+import { AuthRequest } from '../../middleware/auth.middleware';
+import { Task } from './Task';
+import { Project } from '../projects/Project';
+import { User, UserRole } from '../auth/User';
+import { Comment } from './Comment';
+import { Attachment } from './Attachment';
+import { TaskDependency } from './TaskDependency';
+import { TimeEntry } from './TimeEntry';
+import { notifyTaskAssigned } from '../auth/notification.controller';
+import { validateBody, validateQuery, validateParams } from '../../validation/middleware';
+import { CreateTaskSchema, UpdateTaskSchema, TaskQuerySchema, TaskParamsSchema, CreateTimeEntrySchema } from './task.schema';
 
 export const getAllTasks = async (req: AuthRequest, res: Response) => {
   try {
@@ -133,9 +135,11 @@ export const getTaskById = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const createTask = async (req: AuthRequest, res: Response) => {
-  try {
-    const { title, description, projectId, assigneeId, status, priority, dueDate, labels, estimatedHours } = req.body;
+export const createTask = [
+  validateBody(CreateTaskSchema),
+  async (req: AuthRequest, res: Response) => {
+    try {
+      const { title, description, projectId, assigneeId, status, priority, dueDate, labels, estimatedHours } = req.body;
 
     const project = await Project.findByPk(projectId);
     if (!project) {
@@ -173,34 +177,38 @@ export const createTask = async (req: AuthRequest, res: Response) => {
       console.log('Task assignment notification created successfully');
     }
 
-    res.status(201).json(taskWithDetails);
-  } catch (error) {
-    console.error('Create task error:', error);
-    res.status(500).json({ message: 'Server error', error });
+      res.status(201).json(taskWithDetails);
+    } catch (error) {
+      console.error('Create task error:', error);
+      res.status(500).json({ message: 'Server error', error });
+    }
   }
-};
+];
 
-export const updateTask = async (req: AuthRequest, res: Response) => {
-  try {
-    const task = await Task.findByPk(req.params.id, {
-      include: [{ model: Project, as: 'project' }]
-    });
+export const updateTask = [
+  validateParams(TaskParamsSchema),
+  validateBody(UpdateTaskSchema),
+  async (req: AuthRequest, res: Response) => {
+    try {
+      const task = await Task.findByPk(req.params.id, {
+        include: [{ model: Project, as: 'project' }]
+      });
 
-    if (!task) {
-      return res.status(404).json({ message: 'Task not found' });
-    }
+      if (!task) {
+        return res.status(404).json({ message: 'Task not found' });
+      }
 
-    // Allow update if user is admin, owns the project, or is assigned to the task
-    const projectOwnerId = (task as any).project?.ownerId;
-    const canUpdate = req.user?.role === UserRole.ADMIN ||
-                     (projectOwnerId === req.user?.id) ||
-                     task.assigneeId === req.user?.id;
+      // Allow update if user is admin, owns the project, or is assigned to the task
+      const projectOwnerId = (task as any).project?.ownerId;
+      const canUpdate = req.user?.role === UserRole.ADMIN ||
+                       (projectOwnerId === req.user?.id) ||
+                       task.assigneeId === req.user?.id;
 
-    if (!canUpdate) {
-      return res.status(403).json({ message: 'Insufficient permissions to update this task' });
-    }
+      if (!canUpdate) {
+        return res.status(403).json({ message: 'Insufficient permissions to update this task' });
+      }
 
-    const { title, description, status, priority, dueDate, assigneeId, labels, estimatedHours, actualHours } = req.body;
+      const { title, description, status, priority, dueDate, assigneeId, labels, estimatedHours, actualHours } = req.body;
     await task.update({ title, description, status, priority, dueDate, assigneeId, labels, estimatedHours, actualHours });
 
     const updatedTask = await Task.findByPk(task.id, {
@@ -210,11 +218,12 @@ export const updateTask = async (req: AuthRequest, res: Response) => {
       ]
     });
 
-    res.json(updatedTask);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error', error });
+      res.json(updatedTask);
+    } catch (error) {
+      res.status(500).json({ message: 'Server error', error });
+    }
   }
-};
+];
 
 export const deleteTask = async (req: AuthRequest, res: Response) => {
   try {

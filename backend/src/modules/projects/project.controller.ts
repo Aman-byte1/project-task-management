@@ -1,9 +1,12 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth.middleware';
-import { Project } from '../models/Project';
-import { User, UserRole } from '../models/User';
-import { notifyProjectAssigned } from './notification.controller';
-import { Task } from '../models/Task';
+import { AuthRequest } from '../../middleware/auth.middleware';
+import { Project } from './Project';
+import { User, UserRole } from '../auth/User';
+import { Notification } from '../auth/Notification';
+import { notifyProjectAssigned } from '../auth/notification.controller';
+import { Task } from '../tasks/Task';
+import { validateBody, validateQuery, validateParams } from '../../validation/middleware';
+import { CreateProjectSchema, UpdateProjectSchema, ProjectQuerySchema, ProjectParamsSchema } from './project.schema';
 
 export const getAllProjects = async (req: AuthRequest, res: Response) => {
   try {
@@ -58,9 +61,11 @@ export const getProjectById = async (req: AuthRequest, res: Response) => {
   }
 };
 
-export const createProject = async (req: AuthRequest, res: Response) => {
-  try {
-    const { name, description, status, teamMembers } = req.body;
+export const createProject = [
+  validateBody(CreateProjectSchema),
+  async (req: AuthRequest, res: Response) => {
+    try {
+      const { name, description, status, teamMembers } = req.body;
 
     // Allow all authenticated users to create projects
     const project = await Project.create({
@@ -88,12 +93,13 @@ export const createProject = async (req: AuthRequest, res: Response) => {
       }
     }
 
-    res.status(201).json(projectWithOwner);
-  } catch (error) {
-    console.error('Create project error:', error);
-    res.status(500).json({ message: 'Server error', error });
+      res.status(201).json(projectWithOwner);
+    } catch (error) {
+      console.error('Create project error:', error);
+      res.status(500).json({ message: 'Server error', error });
+    }
   }
-};
+];
 
 export const updateProject = async (req: AuthRequest, res: Response) => {
   try {

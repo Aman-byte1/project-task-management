@@ -8,7 +8,7 @@ import {
   uploadAttachment,
   downloadAttachment,
   deleteAttachment
-} from '../controllers/attachment.controller';
+} from '../modules/tasks/attachment.controller';
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({

@@ -1,6 +1,15 @@
 import { Request, Response } from 'express';
 import { Op } from 'sequelize';
-import { User, Project, Task } from '../models';
+import { Task } from '../tasks/Task';
+import { Project } from './Project';
+import { User } from '../auth/User';
+import { pdfService } from './pdf.service';
+import { validateBody } from '../../validation/middleware';
+import {
+  ProjectReportPDFSchema,
+  TaskReportPDFSchema,
+  TimeTrackingReportPDFSchema
+} from './pdf.schema';
 
 export class ReportingController {
   // Get overall project statistics
@@ -179,10 +188,10 @@ export class ReportingController {
       const completedProjects = await Project.findAll({
         where: { status: 'completed' },
         attributes: [
-          [Project.sequelize!.fn('strftime', '%Y-%m', Project.sequelize!.col('createdAt')), 'month'],
+          [Project.sequelize!.fn('DATE_TRUNC', 'month', Project.sequelize!.col('createdAt')), 'month'],
           [Project.sequelize!.fn('COUNT', Project.sequelize!.col('id')), 'count']
         ],
-        group: [Project.sequelize!.fn('strftime', '%Y-%m', Project.sequelize!.col('createdAt'))],
+        group: [Project.sequelize!.fn('DATE_TRUNC', 'month', Project.sequelize!.col('createdAt'))],
         order: [Project.sequelize!.literal('month')]
       });
 
@@ -350,10 +359,10 @@ export class ReportingController {
           }
         },
         attributes: [
-          [Task.sequelize!.fn('strftime', '%Y-%m-%d', Task.sequelize!.col('updatedAt')), 'date'],
+          [Task.sequelize!.fn('DATE_TRUNC', 'day', Task.sequelize!.col('updatedAt')), 'date'],
           [Task.sequelize!.fn('COUNT', Task.sequelize!.col('id')), 'count']
         ],
-        group: [Task.sequelize!.fn('strftime', '%Y-%m-%d', Task.sequelize!.col('updatedAt'))],
+        group: [Task.sequelize!.fn('DATE_TRUNC', 'day', Task.sequelize!.col('updatedAt'))],
         order: [Task.sequelize!.literal('date')]
       });
 
@@ -407,6 +416,79 @@ export class ReportingController {
       res.json(utilizationData);
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch resource utilization' });
+    }
+  }
+
+  // Generate project report PDF
+  static async generateProjectReportPDF(req: Request, res: Response) {
+    try {
+      const { projectId } = req.params;
+
+      const pdfBuffer = await pdfService.generateProjectReport(parseInt(projectId), req.body || {});
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="project-report-${projectId}.pdf"`);
+      res.setHeader('Content-Length', pdfBuffer.length);
+      res.send(pdfBuffer);
+    } catch (error: any) {
+      console.error('Error generating project report PDF:', error);
+      if (error.message === 'Project not found') {
+        res.status(404).json({ error: 'Project not found' });
+      } else {
+        res.status(500).json({ error: 'Failed to generate project report PDF' });
+      }
+    }
+  }
+
+  // Generate task report PDF
+  static async generateTaskReportPDF(req: Request, res: Response) {
+    try {
+      const { taskId } = req.params;
+
+      const pdfBuffer = await pdfService.generateTaskReport(parseInt(taskId), req.body || {});
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="task-report-${taskId}.pdf"`);
+      res.setHeader('Content-Length', pdfBuffer.length);
+      res.send(pdfBuffer);
+    } catch (error: any) {
+      console.error('Error generating task report PDF:', error);
+      if (error.message === 'Task not found') {
+        res.status(404).json({ error: 'Task not found' });
+      } else {
+        res.status(500).json({ error: 'Failed to generate task report PDF' });
+      }
+    }
+  }
+
+  // Generate time tracking report PDF
+  static async generateTimeTrackingReportPDF(req: Request, res: Response) {
+    try {
+      const { userId } = req.params;
+      const { startDate, endDate } = req.query;
+
+      if (!startDate || !endDate) {
+        return res.status(400).json({ error: 'startDate and endDate are required' });
+      }
+
+      const pdfBuffer = await pdfService.generateTimeTrackingReport(
+        parseInt(userId),
+        new Date(startDate as string),
+        new Date(endDate as string),
+        req.body || {}
+      );
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="time-tracking-report-${userId}.pdf"`);
+      res.setHeader('Content-Length', pdfBuffer.length);
+      res.send(pdfBuffer);
+    } catch (error: any) {
+      console.error('Error generating time tracking report PDF:', error);
+      if (error.message === 'User not found' || error.message.includes('TimeEntry')) {
+        res.status(404).json({ error: 'User or time entries not found' });
+      } else {
+        res.status(500).json({ error: 'Failed to generate time tracking report PDF' });
+      }
     }
   }
 
